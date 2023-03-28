@@ -51,54 +51,12 @@ Also, you should change the default passwords with something else.
   Setting dependencies so that those containers will start before Home Assistant
   
       depends_on:
-        - mariadb # MariaDB is optional (only if you would like to use a different database for HA).
-        - zigbee2mqtt  # zigbee2mqtt is optional (only if you want to add Zigbee devices and have a zigbee sniffer attached).
-        - eclipse-mosquitto # aka mosquitto-mqtt is optional (only if you want to add Zigbee devices and have a zigbee sniffer attached).
+        - esphome # (Optional) if you want to start working with esphome / esp boards
+        - vscode  # Nice coder in your browser
+        - mosquitto # aka mosquitto-mqtt is optional (Only needed when you want to use something like espresence).
 
 
-  # MariaDb
-  Setting up the root and Home Assistant password as they are define in .env file 
-
-    environment:
-      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
-      MYSQL_DATABASE: ha_db
-      MYSQL_USER: homeassistant
-      MYSQL_PASSWORD: "${HA_MYSQL_PASSWORD}"
-    
-  Mounting the host config directory within the container. Similar to what's been done for Home Assistant.
-
-    volumes:
-      # Local path where the database will be stored.
-      - ./store/mariadb:/var/lib/mysql
-    ports:
-      - 3306:3306
   
-  # eclipse-mosquitto (MQTT broker)
-  Mounting the config file
-    
-    volumes:
-      - ./config/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
-  
-
-  # zigbee2mqtt
-  Setting timezone to the Home Assistant Default
-    
-    environment:
-      - TZ=Europe/Amsterdam
-    
-    
-  Mounting the host config directory within the container. Similar to what's been done for Home Assistant.
-    
-    volumes:
-      - ./config/zigbee2mqtt:/app/data
-      - /run/udev:/run/udev:ro 
-    
-    
-    devices:
-      - "${ZIGBEE_ADAPTER_TTY}:/dev/ttyZigbee"
-    
-
-
 # Visual Studio code
 Runs VSCode in the webbrowser. Not need by any of the other containers, but usefull when editing Home Assistant YAML files.
 
