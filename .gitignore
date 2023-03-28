@@ -1,4 +1,4 @@
 config/home-assistant/
 config/zigbee2mqtt/log/
 store/coder/coder-logs/
-store/mariadb/
+config/mosquito/config/password.txt
