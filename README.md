@@ -72,3 +72,25 @@ Runs VSCode in the webbrowser. Not need by any of the other containers, but usef
        ports:
          - "8443:8443"
        command: code-server --auth password --port 8443 --disable-telemetry /home/coder/project
+
+
+## Mosquitto
+When first starting mosquitto you have to generate the password.
+
+First changing the following lines from:
+```bash
+allow_anonymous false
+password_file /mosquitto/config/password.txt
+```
+to:
+```bash
+allow_anonymous true
+#password_file /mosquitto/config/password.txt
+```
+
+Then start the container and then executing the following commands:
+```bash
+docker exec -it mosquitto /bin/bash
+mosquitto_passwd -c /mosquitto/config/password.txt hass
+```
+This will create the actual password file. 
