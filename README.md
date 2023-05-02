@@ -94,3 +94,24 @@ docker exec -it mosquitto /bin/bash
 mosquitto_passwd -c /mosquitto/config/password.txt hass
 ```
 This will create the actual password file. 
+
+Stop the container, change the configfile back to the original state with the PW file and start.
+
+
+## Home ASsistant
+On first startup everything (files) will be generated for you. In order to access mosquito and visual studio code add the following to the configuration.yml:
+
+```yml
+panel_iframe:
+  esphome:
+    title: ESPHome
+    icon: mdi:chip
+    url: http://localhost:6052
+    require_admin: true
+  vscode:
+    title: VisualCode
+    url: 'http://localhost:8443'
+    icon: mdi:visual-studio-code
+```    
+
+If you need mosquito you have to add it as an integration in the Home Assistant gui.
