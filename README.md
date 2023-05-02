@@ -1,11 +1,11 @@
 # home-assistant-docker-compose
 
-Already configured setup for Home Assistant with Zigbee2MQTT, Mosquitto-MQTT, and MariaDB.
+Already configured setup for Home Assistant with esphome, mosquitto and vscode
 Some changes are required, but outside of editing ".env" file, it should work out of the box. (it does work even if you don't change anything in the file, but the default passwords are in no way safe).
 
 # Usage
 
-    git clone git@github.com:djjanssen/home-assistant-sandbox.git
+    git clone https://github.com/djjanssen/home-assistant-sandbox.git
     cd home-assistant-sandbox
     nano -l .env #or whatever editor you prefer
     (change default settings & save)
@@ -23,13 +23,8 @@ You need to update the value of ZIGBEE_ADAPTER_TTY to the actual tty that you ha
 Also, you should change the default passwords with something else.
     
     LOCAL_USER=1000
-    MYSQL_ROOT_PASSWORD=password
     HA_MYSQL_PASSWORD=password
     VSCODE_PASSWORD=password
-    ZIGBEE_ADAPTER_TTY=/dev/ttyACM0
-    
-    
-
     
 # docker-compose.yaml
 
