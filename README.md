@@ -5,7 +5,7 @@ Some changes are required, but outside of editing ".env" file, it should work ou
 
 # Usage
 
-    git clone https://github.com/djjanssen/home-assistant-sandbox
+    git clone git@github.com:djjanssen/home-assistant-sandbox.git
     cd home-assistant-sandbox
     nano -l .env #or whatever editor you prefer
     (change default settings & save)
