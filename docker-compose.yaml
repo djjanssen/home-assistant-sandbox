@@ -13,7 +13,9 @@ services:
       - 8123:8123
     privileged: true
     depends_on:
-      - eclipse-mosquitto # aka mosquitto-mqtt is optional (only if you want to add Zigbee devices and have a zigbee sniffer attached).
+      - mosquitto # aka mosquitto-mqtt is optional (only if you want to add Zigbee devices and have a zigbee sniffer attached).
+      - esphome
+      - vscode
 
 
 
@@ -34,8 +36,8 @@ services:
     volumes:
       - ./config/esphome:/config
       - /etc/localtime:/etc/localtime:ro
-      - /dev/ttyUSB1:/dev/ttyUSB1
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      #- /dev/ttyUSB1:/dev/ttyUSB1
+      #- /dev/ttyUSB0:/dev/ttyUSB0
     privileged: true
     network_mode: host
     ports:
